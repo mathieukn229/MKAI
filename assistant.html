@@ -141,6 +141,88 @@ Envoyer
 
 function send(){
 
+let input = document.getElementById("input");
+let chat = document.getElementById("chat");
+
+let question = input.value.toLowerCase();
+
+if(question.trim()==""){
+return;
+}
+
+
+chat.innerHTML += 
+"<div class='message user'>"+input.value+"</div>";
+
+
+let answer = "";
+
+
+if(question.includes("bonjour") || question.includes("salut")){
+
+answer = "Bonjour 👋 Je suis MKAI Assistant. Je suis là pour vous aider avec l'intelligence artificielle, le digital et la création de projets.";
+
+}
+
+
+else if(question.includes("mkai")){
+
+answer = "MKAI est une plateforme dédiée à l'intelligence artificielle, aux formations digitales et aux solutions innovantes pour les entrepreneurs africains.";
+
+}
+
+
+else if(question.includes("ia") || question.includes("intelligence artificielle")){
+
+answer = "L'intelligence artificielle permet aux machines d'apprendre, d'analyser des informations et d'aider les humains à créer plus rapidement.";
+
+}
+
+
+else if(question.includes("chatgpt")){
+
+answer = "ChatGPT est un assistant IA capable d'aider à écrire, apprendre, créer du contenu et trouver des idées.";
+
+}
+
+
+else if(question.includes("argent") || question.includes("business")){
+
+answer = "Avec l'IA, vous pouvez créer des services, des formations, des contenus et des produits digitaux pour développer une activité en ligne.";
+
+}
+
+
+else if(question.includes("produit digital")){
+
+answer = "Un produit digital peut être un e-book, une formation vidéo, un modèle, un guide ou un outil vendu en ligne.";
+
+}
+
+
+else{
+
+answer = "Je suis encore en évolution 🤖. Posez-moi une question sur l'IA, le digital ou MKAI.";
+
+}
+
+
+
+chat.innerHTML += 
+"<div class='message'>"+answer+"</div>";
+
+
+input.value="";
+
+
+chat.scrollTop = chat.scrollHeight;
+
+}
+
+</script>
+
+  
+
 let input=document.getElementById("input");
 let chat=document.getElementById("chat");
 
