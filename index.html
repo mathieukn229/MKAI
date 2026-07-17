@@ -16,7 +16,115 @@ padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
+<section id="assistant">
 
+<h2 class="title">
+🤖 Discuter avec MKAI
+</h2>
+
+<div class="card chat-box">
+
+<div id="messages">
+<p><strong>MKAI :</strong> Bonjour 👋 Je suis MKAI Assistant. Comment puis-je vous aider aujourd'hui ?</p>
+</div>
+
+
+<input 
+id="question"
+type="text"
+placeholder="Écrivez votre question..."
+>
+
+
+<button class="btn" onclick="sendMessage()">
+Envoyer
+</button>
+
+
+</div>
+
+</section>
+
+
+<style>
+
+.chat-box{
+text-align:center;
+}
+
+
+#messages{
+
+background:#050510;
+padding:20px;
+border-radius:15px;
+min-height:120px;
+margin-bottom:20px;
+text-align:left;
+
+}
+
+
+#question{
+
+width:80%;
+padding:15px;
+border-radius:30px;
+border:1px solid #2929ff;
+background:#111;
+color:white;
+margin-bottom:15px;
+
+}
+
+
+</style><script>
+
+function sendMessage(){
+
+let question = document.getElementById("question").value;
+
+let messages = document.getElementById("messages");
+
+
+if(question.trim()==""){
+return;
+}
+
+
+messages.innerHTML += 
+"<p><strong>Vous :</strong> "+question+"</p>";
+
+
+let answer="";
+
+
+if(question.toLowerCase().includes("bonjour")){
+answer="Bonjour 👋 Je suis MKAI Assistant. Ravi de vous aider.";
+}
+
+else if(question.toLowerCase().includes("ia") || question.toLowerCase().includes("intelligence artificielle")){
+answer="L'intelligence artificielle permet de créer, automatiser et résoudre des problèmes grâce aux technologies modernes.";
+}
+
+else if(question.toLowerCase().includes("argent") || question.toLowerCase().includes("business")){
+answer="MKAI peut vous aider à trouver des idées de produits digitaux et des stratégies pour développer votre activité.";
+}
+
+else{
+answer="Je suis encore en développement 🤖. Bientôt, MKAI sera connecté à une vraie intelligence artificielle pour répondre à beaucoup plus de questions.";
+}
+
+
+messages.innerHTML +=
+"<p><strong>MKAI :</strong> "+answer+"</p>";
+
+
+document.getElementById("question").value="";
+
+}
+
+</script>
 body{
 background:#050510;
 color:white;
