@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MKAI Assistant</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+
+header{
+
+padding:20px;
+text-align:center;
+background:#111;
+border-bottom:1px solid #333;
+
+}
+
+header h1{
+color:white;
+}
+
+
+.chat{
+
+flex:1;
+padding:20px;
+overflow-y:auto;
+
+}
+
+
+.message{
+
+background:white;
+color:black;
+padding:15px;
+border-radius:15px;
+margin-bottom:15px;
+max-width:80%;
+
+}
+
+
+.user{
+
+background:#222;
+color:white;
+margin-left:auto;
+
+}
+
+
+.input-area{
+
+display:flex;
+padding:15px;
+background:#111;
+
+}
+
+
+input{
+
+flex:1;
+padding:15px;
+border-radius:30px;
+border:none;
+outline:none;
+
+}
+
+
+button{
+
+margin-left:10px;
+padding:15px 25px;
+border-radius:30px;
+border:none;
+background:white;
+color:black;
+font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🤖 MKAI Assistant</h1>
+
+</header>
+
+
+<div class="chat" id="chat">
+
+<div class="message">
+Bonjour 👋 Je suis MKAI Assistant. Comment puis-je vous aider ?
+</div>
+
+</div>
+
+
+<div class="input-area">
+
+<input id="input" placeholder="Écrivez votre question...">
+
+<button onclick="send()">
+Envoyer
+</button>
+
+</div>
+
+
+<script>
+
+function send(){
+
+let input=document.getElementById("input");
+let chat=document.getElementById("chat");
+
+
+if(input.value==""){
+return;
+}
+
+
+chat.innerHTML += 
+"<div class='message user'>"+input.value+"</div>";
+
+
+chat.innerHTML +=
+"<div class='message'>Je suis MKAI 🤖. Mon intelligence est en développement, je pourrai bientôt répondre à vos questions.</div>";
+
+
+input.value="";
+
+}
+
+</script>
+
+
+</body>
+
+  </html>
