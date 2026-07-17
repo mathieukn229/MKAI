@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MKAI Assistant</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#000;
+color:white;
+height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+header{
+background:#111;
+padding:20px;
+text-align:center;
+border-bottom:1px solid #333;
+}
+
+header h1{
+margin:0;
+}
+
+#chat{
+flex:1;
+padding:20px;
+overflow-y:auto;
+}
+
+.message{
+background:white;
+color:black;
+padding:12px;
+border-radius:15px;
+margin-bottom:15px;
+max-width:80%;
+}
+
+.user{
+background:#333;
+color:white;
+margin-left:auto;
+}
+
+
+.zone{
+display:flex;
+padding:15px;
+background:#111;
+}
+
+input{
+flex:1;
+padding:15px;
+border-radius:30px;
+border:none;
+outline:none;
+}
+
+
+button{
+margin-left:10px;
+padding:15px 20px;
+border-radius:30px;
+border:none;
+background:white;
+font-weight:bold;
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🤖 MKAI Assistant</h1>
+
+</header>
+
+
+<div id="chat">
+
+<div class="message">
+Bonjour 👋 Je suis MKAI Assistant. Posez-moi votre question.
+</div>
+
+</div>
+
+
+
+<div class="zone">
+
+<input id="question" placeholder="Écrire un message...">
+
+<button onclick="envoyer()">
+Envoyer
+</button>
+
+</div>
+
+
+
+<script>
+
+function envoyer(){
+
+let input=document.getElementById("question");
+let chat=document.getElementById("chat");
+
+let question=input.value;
+
+
+if(question==""){
+return;
+}
+
+
+chat.innerHTML += 
+"<div class='message user'>"+question+"</div>";
+
+
+let reponse="";
+
+
+let q=question.toLowerCase();
+
+
+if(q.includes("bonjour") || q.includes("salut")){
+
+reponse="Bonjour 👋 Je suis MKAI, votre assistant intelligent.";
+
+}
+
+else if(q.includes("mkai")){
+
+reponse="MKAI est une plateforme d'intelligence artificielle créée pour aider les entrepreneurs et créateurs africains.";
+
+}
+
+else if(q.includes("ia") || q.includes("intelligence artificielle")){
+
+reponse="L'intelligence artificielle permet aux machines d'apprendre, d'analyser et d'aider les humains à créer plus efficacement.";
+
+}
+
+else if(q.includes("argent") || q.includes("business")){
+
+reponse="L'IA peut aider à créer des contenus, des services et des produits digitaux.";
+
+}
+
+else{
+
+reponse="Je suis encore en apprentissage 🤖. Essayez une question sur l'IA, MKAI ou le business digital.";
+
+}
+
+
+chat.innerHTML +=
+"<div class='message'>"+reponse+"</div>";
+
+
+input.value="";
+
+chat.scrollTop=chat.scrollHeight;
+
+}
+
+</script>
+
+
+</body>
+
+  </html>
